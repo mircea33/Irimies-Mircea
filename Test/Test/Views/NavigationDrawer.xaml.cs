@@ -41,11 +41,18 @@ namespace Test.Views
                         gotoPage = new Signup();
                         break;
                 }
-                Detail = new NavigationPage(gotoPage);
+                Detail = new NavigationPage(gotoPage)
+                {
+                    BarBackgroundColor = Color.SaddleBrown
+
+                };
                 ((ListView)sender).SelectedItem = null;
                 this.IsPresented = false;
             };
-            Detail = new NavigationPage(new Home());
+            Detail = new NavigationPage(new Home())
+            {
+                BarBackgroundColor = Color.SaddleBrown
+            };
         }
     }
 }
