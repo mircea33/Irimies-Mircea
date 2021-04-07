@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Test.Views.Signup">
+    <ContentPage.Content>
+        <StackLayout 
+            VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand">
+            <Label Text="Welcome to applied philosophy"/>
+            <Entry x:Name="UsernameAccount" Placeholder="Choose a username" />
+            <Entry x:Name="EmailAccount" Placeholder="Enter your email"/>
+            <Entry x:Name="Password_account" Placeholder="Enter your password"/>
+            <Button x:Name="SignupButton_LoginPage" Text="Sign up"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
