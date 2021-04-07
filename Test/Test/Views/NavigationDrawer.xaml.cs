@@ -15,7 +15,7 @@ namespace Test.Views
         public NavigationDrawer()
         {
             InitializeComponent();
-            string[] myPageNames = { "Home", "Meditation time", "Journaling","Journal Entries", "Questions" };
+            string[] myPageNames = { "Home", "Meditation time", "Journaling","Journal Entries", "Questions","Log out" };
             menu.ItemsSource = myPageNames;
             menu.ItemTapped += (sender, e) =>
             {
@@ -37,13 +37,17 @@ namespace Test.Views
                     case "Questions":
                         gotoPage = new Questions();
                         break;
+                    case "Log out":
+                        gotoPage = new Login();
+                        break;
                     default:
-                        gotoPage = new Signup();
+                        gotoPage = new Login();
                         break;
                 }
                 Detail = new NavigationPage(gotoPage)
                 {
                     BarBackgroundColor = Color.SaddleBrown
+
                 };
                 ((ListView)sender).SelectedItem = null;
                 this.IsPresented = false;
