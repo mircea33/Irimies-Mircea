@@ -3,21 +3,19 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using Test.Models;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-using Test.ModelViews;
+
 namespace Test.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class Questions : ContentPage
+    public partial class DetailPageJournalEntries : ContentPage
     {
-        
-        public Questions()
+        public DetailPageJournalEntries(JournalEntry item)
         {
             InitializeComponent();
-            QuestionsViewModel testare;
-            
+            this.BindingContext = item;
         }
     }
 }

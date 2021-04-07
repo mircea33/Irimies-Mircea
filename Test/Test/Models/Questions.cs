@@ -6,9 +6,9 @@ namespace Test.Models
 {
     public class Questions
     {
-        public Questions()
+        public Questions(string questions)
         {
-            //this.thequestion = 
+            this.the_question = questions;
         }
         public string the_question { private set; get; }
     }

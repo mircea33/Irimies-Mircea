@@ -4,8 +4,8 @@
              x:Class="Test.Views.Questions">
     <ContentPage.Content>
         <StackLayout BackgroundColor="White">
-            <Entry Placeholder="What's on your mind" />
-            <Button Text="Save"/>
+            <Label Text="So, let's dwell into life's big questions"/>
+            <Label Padding="20,20" />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

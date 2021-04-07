@@ -6,7 +6,7 @@
    
     <MasterDetailPage.Master>
         <ContentPage Title="Options" Icon="hamburger.png">
-            <ListView x:Name="menu"  SeparatorColor="Gray"/>
+            <ListView x:Name="menu"  SeparatorColor="Gray" />
         </ContentPage>
     </MasterDetailPage.Master>
     <MasterDetailPage.Detail>

@@ -15,7 +15,7 @@ namespace Test.Views
         public NavigationDrawer()
         {
             InitializeComponent();
-            string[] myPageNames = { "Home", "Meditation time", "Journaling", "Questions" };
+            string[] myPageNames = { "Home", "Meditation time", "Journaling","Journal Entries", "Questions" };
             menu.ItemsSource = myPageNames;
             menu.ItemTapped += (sender, e) =>
             {
@@ -44,7 +44,6 @@ namespace Test.Views
                 Detail = new NavigationPage(gotoPage)
                 {
                     BarBackgroundColor = Color.SaddleBrown
-
                 };
                 ((ListView)sender).SelectedItem = null;
                 this.IsPresented = false;
