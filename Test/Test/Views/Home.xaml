@@ -4,15 +4,22 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Test.Views.Home"
             Title="Home Page">
-    <TabbedPage.BarBackgroundColor> SaddleBrown </TabbedPage.BarBackgroundColor>
+    <TabbedPage.BarBackgroundColor>SaddleBrown</TabbedPage.BarBackgroundColor>
     <TabbedPage.ItemTemplate>
         <DataTemplate>
-            <ContentPage Title="{Binding Nume}" >
-                <StackLayout  Padding="5, 25">
-                    <ListView>
-                        
-                    </ListView>
-                </StackLayout>
+            <ContentPage x:Name="{Binding Nume}" Title="{Binding Nume}">
+                <ContentPage.Content>
+                    <StackLayout  Padding="5, 25">
+                        <Label Text="Oare unde o sa scrie la label ul asta?"/>
+                        <ListView x:Name="ArticleList" >
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <TextCell Text="{Binding Title}"/>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                    </StackLayout>
+                </ContentPage.Content>
             </ContentPage>
         </DataTemplate>
     </TabbedPage.ItemTemplate>

@@ -5,7 +5,7 @@
              NavigationPage.HasBackButton="True">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Journal E" FontSize="40"></Label>
+            <Label Text="Journal Entries" FontSize="40"></Label>
             <ListView x:Name="itemList" ItemTapped="ItemTapped" >
                 <ListView.ItemTemplate>
                     <DataTemplate>

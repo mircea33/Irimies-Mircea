@@ -11,12 +11,11 @@ namespace Test
         public App()
         {
             InitializeComponent();
-            MainPage = new NavigationDrawer();
+            MainPage = new NavigationPage(new Login());
         }
         protected override void OnStart()
         {
         }
-
         protected override void OnSleep()
         {
         }

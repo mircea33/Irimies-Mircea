@@ -20,10 +20,12 @@ namespace Test.Views
             menu.ItemTapped += (sender, e) =>
             {
                 ContentPage gotoPage;
+                TabbedPage gotoTabbedPage = null;
                 switch (e.Item.ToString())
                 {
                     case "Home":
-                        gotoPage = new Login();
+                        gotoTabbedPage = new Home();
+                        gotoPage = null;
                         break;
                     case "Meditation time":
                         gotoPage = new Login();
@@ -44,18 +46,18 @@ namespace Test.Views
                         gotoPage = new Login();
                         break;
                 }
-                Detail = new NavigationPage(gotoPage)
+                if (gotoTabbedPage != null)
                 {
-                    BarBackgroundColor = Color.SaddleBrown
-
-                };
+                    Detail = new NavigationPage(gotoTabbedPage);
+                }
+                else
+                {
+                      Detail = new NavigationPage(gotoPage);        
+                }
                 ((ListView)sender).SelectedItem = null;
                 this.IsPresented = false;
             };
-            Detail = new NavigationPage(new Home())
-            {
-                BarBackgroundColor = Color.SaddleBrown
-            };
+            Detail = new NavigationPage(new Home());     
         }
     }
 }

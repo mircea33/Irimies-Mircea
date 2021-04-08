@@ -29,10 +29,15 @@
                     </VisualStateGroupList>
                 </Setter>
             </Style>
-            
+            <Style TargetType="NavigationPage">
+                <Setter Property="BarBackgroundColor" Value= "{StaticResource Primary}"/>
+            </Style>
             <Style TargetType="Label">
                 <Setter Property="TextColor" Value="Black" />
                 <Setter Property="FontAttributes" Value="{StaticResource TipuldeFont}"/>
+            </Style>
+            <Style TargetType="TabbedPage">
+                <Setter Property="BarBackgroundColor" Value="{StaticResource Primary}"/>
             </Style>
         </ResourceDictionary>        
     </Application.Resources>

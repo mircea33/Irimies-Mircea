@@ -20,7 +20,22 @@ namespace Test.Views
             new Filozofii ("Stoicism"),
             new Filozofii ("Taoism"),
             new Filozofii ("The greeks"),
-            };
+            };       
+           /*
+            .ItemsSource = new Articles[] {
+        new Articles {Title = "First", Article="1st item"},
+        new Articles {Title = "Second", Article="2nd item"},
+        new Articles {Title = "Third", Article="3rd item"}
+        };
+
+    }
+    protected async void ItemTapped(object sender, ItemTappedEventArgs args)
+    {
+        var item = args.Item as Articles;
+        if (item == null) return;
+        await Navigation.PushAsync(new ArticlePage(item));
+        ArticleList.SelectedItem = null;
+    } */
         }
     }
 }

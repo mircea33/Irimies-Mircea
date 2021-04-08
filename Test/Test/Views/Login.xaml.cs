@@ -15,9 +15,14 @@ namespace Test.Views
         public Login()
         {
             InitializeComponent();
+            LoginButton.Clicked += async (sender, args) =>
+            {
+                await Navigation.PushModalAsync(new NavigationDrawer());
+                
+            };
             SignupButton_LoginPage.Clicked += async (sender, args) =>
             {
-                await Navigation.PushAsync(new Signup());
+                await Navigation.PushAsync(new Signup()); 
             };
         }
     }
