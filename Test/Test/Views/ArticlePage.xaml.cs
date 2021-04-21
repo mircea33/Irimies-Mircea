@@ -12,10 +12,10 @@ namespace Test.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class ArticlePage : ContentPage
     {
-        public ArticlePage(Articles item)
+        public ArticlePage()
         {
             InitializeComponent();
-            this.BindingContext = item;
+           
         }
     }
 }

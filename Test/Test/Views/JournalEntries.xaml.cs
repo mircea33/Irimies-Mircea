@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 using Test.Models;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using SQLite;
+using Test.Services;
+using System.Linq;
 
 namespace Test.Views
 {
@@ -15,18 +18,34 @@ namespace Test.Views
         public JournalEntries()
         {
             InitializeComponent();
-            itemList.ItemsSource = new JournalEntry[] {
- new JournalEntry {Title = "First", Writings="1st item"},
- new JournalEntry {Title = "Second", Writings="2nd item"},
- new JournalEntry {Title = "Third", Writings="3rd item"}
- };
+            //var connection = DependencyService.Get<ISQLiteDb>().GetConnection();
+            //connection.CreateTableAsync<JournalEntry>();
+         //   itemList.ItemsSource = new JournalEntry[] {
+ //new JournalEntry ("First", "1st item"),
+ ///new JournalEntry ("Second", "2nd item"),
+ //new JournalEntry ("Third", "3rd item")
+ //};            
+        }
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            using (SQLiteConnection conn = new SQLiteConnection(App.FilePath))
+            {
+                conn.CreateTable<JournalEntry>();
+                var journalentry = conn.Table<JournalEntry>().ToList();
+                JournalEntriesList.ItemsSource = journalentry;
+            }
         }
         protected async void ItemTapped(object sender, ItemTappedEventArgs args)
         {
             var item = args.Item as JournalEntry;
-            if (item == null) return;
+           if (item == null) return;
             await Navigation.PushAsync(new DetailPageJournalEntries(item));
-            itemList.SelectedItem = null;
+            JournalEntriesList.SelectedItem = null;
+        }
+        private async void gotojournaling(object sender, EventArgs e)
+        {
+            await Navigation.PushModalAsync(new Journaling());
         }
     }
 }

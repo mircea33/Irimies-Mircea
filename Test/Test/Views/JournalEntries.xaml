@@ -3,10 +3,14 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Test.Views.JournalEntries"
              NavigationPage.HasBackButton="True">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem  Text="ADD" Clicked="gotojournaling"/>
+        <ToolbarItem IconImageSource="icon_feed.png" Text="Options"/>
+    </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <StackLayout>
             <Label Text="Journal Entries" FontSize="40"></Label>
-            <ListView x:Name="itemList" ItemTapped="ItemTapped" >
+            <ListView x:Name="JournalEntriesList"  ItemTapped="ItemTapped">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <TextCell Text="{Binding Title}" />

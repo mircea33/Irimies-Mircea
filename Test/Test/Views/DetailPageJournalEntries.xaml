@@ -2,10 +2,16 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Test.Views.DetailPageJournalEntries">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="{Binding Title}"/>
+    </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <StackLayout>
-            <Label FontSize="40" Text="{Binding Title}" />
             <Label FontSize="40" Text="{Binding Writings}" />
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Written in : "/>
+                <Label Text="{Binding CreateAt}"/>
+            </StackLayout>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

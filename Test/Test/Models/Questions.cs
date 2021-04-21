@@ -10,6 +10,10 @@ namespace Test.Models
         {
             this.the_question = questions;
         }
-        public string the_question { private set; get; }
+        public string The_Question()
+        {
+            return this.the_question;
+        }
+        private string the_question { set; get; }
     }
 }

@@ -12,6 +12,7 @@ namespace Test.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class DetailPageJournalEntries : ContentPage
     {
+        public string nume;
         public DetailPageJournalEntries(JournalEntry item)
         {
             InitializeComponent();

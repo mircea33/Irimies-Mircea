@@ -1,20 +1,19 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<TabbedPage 
+<CarouselPage 
     xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Test.Views.Home"
-            Title="Home Page">
-    <TabbedPage.BarBackgroundColor>SaddleBrown</TabbedPage.BarBackgroundColor>
-    <TabbedPage.ItemTemplate>
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="Test.Views.Home"
+    Title="Home Page">
+    <CarouselPage.ItemTemplate>
         <DataTemplate>
-            <ContentPage x:Name="{Binding Nume}" Title="{Binding Nume}">
+            <ContentPage Title="{Binding Philosopher}">
                 <ContentPage.Content>
-                    <StackLayout  Padding="5, 25">
-                        <Label Text="Oare unde o sa scrie la label ul asta?"/>
-                        <ListView x:Name="ArticleList" >
+                    <StackLayout   HorizontalOptions="CenterAndExpand" VerticalOptions="EndAndExpand"  >
+                        <Label Text="{Binding Philosopher}"/>
+                        <Label Text="{Binding Quote}"/>
+                        <ListView x:Name="hh" >
                             <ListView.ItemTemplate>
                                 <DataTemplate>
-                                    <TextCell Text="{Binding Title}"/>
                                 </DataTemplate>
                             </ListView.ItemTemplate>
                         </ListView>
@@ -22,5 +21,5 @@
                 </ContentPage.Content>
             </ContentPage>
         </DataTemplate>
-    </TabbedPage.ItemTemplate>
-</TabbedPage>
+    </CarouselPage.ItemTemplate>
+</CarouselPage>

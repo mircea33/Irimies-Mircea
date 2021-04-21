@@ -15,40 +15,39 @@ namespace Test.Views
         public NavigationDrawer()
         {
             InitializeComponent();
-            string[] myPageNames = { "Home", "Meditation time", "Journaling","Journal Entries", "Questions","Log out" };
+            string[] myPageNames = { "Home", "Taoism","Stoicism","Ancient Greece", "Journaling","Questions"};
             menu.ItemsSource = myPageNames;
             menu.ItemTapped += (sender, e) =>
             {
-                ContentPage gotoPage;
-                TabbedPage gotoTabbedPage = null;
+                ContentPage gotoPage = null;
+                CarouselPage gotoCarrouselPage = null;
                 switch (e.Item.ToString())
                 {
-                    case "Home":
-                        gotoTabbedPage = new Home();
-                        gotoPage = null;
+                    case "Taoism":
+                        gotoCarrouselPage = new Home();
+                        break;
+                    case "Stoicism":
+                        gotoPage = new MeditationTimer();
+                        break;
+                    case "Ancient Greece":
+                        gotoPage = new MeditationTimer();
                         break;
                     case "Meditation time":
-                        gotoPage = new Login();
+                        gotoPage = new MeditationTimer();
                         break;
                     case "Journaling":
-                        gotoPage = new Journaling();
-                        break;
-                    case "Journal Entries":
                         gotoPage = new JournalEntries();
                         break;
                     case "Questions":
                         gotoPage = new Questions();
                         break;
-                    case "Log out":
-                        gotoPage = new Login();
-                        break;
                     default:
-                        gotoPage = new Login();
+                        gotoCarrouselPage = new Home();
                         break;
                 }
-                if (gotoTabbedPage != null)
+                if (gotoCarrouselPage != null)
                 {
-                    Detail = new NavigationPage(gotoTabbedPage);
+                    Detail = new NavigationPage(gotoCarrouselPage);
                 }
                 else
                 {

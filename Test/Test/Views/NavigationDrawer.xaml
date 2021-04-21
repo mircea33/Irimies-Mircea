@@ -4,7 +4,10 @@
              x:Class="Test.Views.NavigationDrawer" >
     <MasterDetailPage.Master>
         <ContentPage Title="Options" Icon="hamburger.png">
-            <ListView x:Name="menu"  SeparatorColor="Gray" />
+            <StackLayout>
+                <Label Text="Asta va aparea in slider?"/>
+                <ListView x:Name="menu"  SeparatorColor="SaddleBrown" />
+            </StackLayout>
         </ContentPage>
     </MasterDetailPage.Master>
     <MasterDetailPage.Detail>
