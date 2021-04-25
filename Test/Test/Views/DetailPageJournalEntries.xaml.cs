@@ -18,5 +18,15 @@ namespace Test.Views
             InitializeComponent();
             this.BindingContext = item;
         }
+
+        private void ToolbarItem_Edit_Clicked(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ToolbarItem_Delete_Clicked(object sender, EventArgs e)
+        {
+
+        }
     }
 }

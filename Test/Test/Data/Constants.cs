@@ -7,7 +7,7 @@ namespace Test.Data
 {
     public static class Constants
     {
-        public const string DatabaseFilename = "Philosophies_Qoutes_Questions.db";
+        public const string DatabaseFilename = "Data_base.db";
 
         public const SQLite.SQLiteOpenFlags Flags =
             // open the database in read/write mode
@@ -16,12 +16,11 @@ namespace Test.Data
             SQLite.SQLiteOpenFlags.Create |
             // enable multi-threaded database access
             SQLite.SQLiteOpenFlags.SharedCache;
-
         public static string DatabasePath
         {
             get
             {
-                var basePath = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
+                string basePath = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
                 return Path.Combine(basePath, DatabaseFilename);
             }
         }

@@ -39,6 +39,7 @@
             <Style TargetType="TabbedPage">
                 <Setter Property="BarBackgroundColor" Value="{StaticResource Primary}"/>
             </Style>
-        </ResourceDictionary>        
+
+        </ResourceDictionary>
     </Application.Resources>
 </Application>

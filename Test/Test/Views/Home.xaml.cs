@@ -18,22 +18,29 @@ namespace Test.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class Home : CarouselPage
     {
-        public Home()
+
+        public  Home()
         {
             InitializeComponent();
-
-            using (var conn = new SQLiteConnection(Constants.DatabasePath))
+            /*
+            string DatabasePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData),
+                "Data_base.db");
+            Assembly assembly = IntrospectionExtensions.GetTypeInfo(typeof(App)).Assembly;
+            Stream embeddedDatabaseStream = assembly.GetManifestResourceStream("Test.Data_base.db");
+            if(!File.Exists(DatabasePath))
             {
-                ItemsSource = conn.Table<Philosophers>().ToList();
+                FileStream fileStreamToWrite = File.Create(DatabasePath);
+                embeddedDatabaseStream.Seek(0, SeekOrigin.Begin);
+                embeddedDatabaseStream.CopyTo(fileStreamToWrite);
+                fileStreamToWrite.Close();
             }
-            // this.ItemsSource = (System.Collections.IEnumerable)baza_de_date.Database.Table<Quotes>().ToListAsync();
-             
-
-            // private void Button_Clicked(object sender, EventArgs e)
-            // {
-            //      string[] a = new string[] { "this is the first quote", "second quote","third quote" };
-
-            // }
+            SQLiteAsyncConnection Database = new SQLiteAsyncConnection(DatabasePath);
+            ItemsSource = (System.Collections.IEnumerable)Database.Table<Quotes>().ToListAsync();
+            //using (var conn = new SQLiteConnection(Constants.DatabasePath))
+            //{
+             //   ItemsSource = conn.Table<Quotes>().ToList();
+            //}
+            */
         }
     }
 }

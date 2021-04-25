@@ -8,7 +8,7 @@ namespace Test
 {
     public partial class App : Application
     {
-        public static string FilePath;      
+        public static string FilePath;       
         public App()
         {
             InitializeComponent();

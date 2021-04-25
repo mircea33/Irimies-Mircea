@@ -6,9 +6,8 @@ namespace Test.Models
 {
     public class Philosophy
     {
-        public Philosophy(string nume)
+        public Philosophy()
         {
-            this.Name = nume;
         }
         [PrimaryKey]
         public string Name {set; get; }

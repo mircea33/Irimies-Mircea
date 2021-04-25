@@ -6,14 +6,17 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Database.db" />
+    <None Remove="Data_base.db" />
+    <None Remove="GettingStarted.txt" />
     <None Remove="Images\characterispower.jpg" />
     <None Remove="Image\characterispower.jpg" />
     <None Remove="Philosophies_Qoutes_Questions.db" />
   </ItemGroup>
 
   <ItemGroup>
+    <Content Include="GettingStarted.txt" />
     <EmbeddedResource Include="Image\characterispower.jpg" />
-    <EmbeddedResource Include="Philosophies_Qoutes_Questions.db" />
   </ItemGroup>
 
   <ItemGroup>
@@ -26,6 +29,12 @@
     <PackageReference Include="sqlite-net-pcl" Version="1.7.335" />
     <PackageReference Include="Xamarin.Forms" Version="5.0.0.2012" />  
     <PackageReference Include="Xamarin.Essentials" Version="1.6.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Database.db" />
+    <Resource Include="Data_base.db" />
+    <Resource Include="Philosophies_Qoutes_Questions.db" />
   </ItemGroup>
 
   <ItemGroup>

@@ -3,17 +3,42 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Test.Views.JournalEntries"
              NavigationPage.HasBackButton="True">
+    <ContentPage.Padding>
+ <OnPlatform x:TypeArguments="Thickness">
+ <On Platform="iOS">10,20,10,5</On>
+ <On Platform="Android">10,0,10,5</On>
+ </OnPlatform>
+</ContentPage.Padding>
     <ContentPage.ToolbarItems>
         <ToolbarItem  Text="ADD" Clicked="gotojournaling"/>
-        <ToolbarItem IconImageSource="icon_feed.png" Text="Options"/>
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Journal Entries" FontSize="40"></Label>
-            <ListView x:Name="JournalEntriesList"  ItemTapped="ItemTapped">
+            <Label Text="Journal Entries" FontSize="40" ></Label>
+            <SearchBar Placeholder="Search ..." TextChanged="SearchBar_TextChanged"/>
+            <ListView x:Name="JournalEntriesList"  ItemTapped="ItemTapped" RowHeight="100" IsPullToRefreshEnabled="True" Refreshing ="End_refreshing">
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <TextCell Text="{Binding Title}" />
+                        <ViewCell>
+                            <ViewCell.ContextActions>
+                                <MenuItem Text="Edit Entry" 
+CommandParameter="{Binding .}"/>
+                                <MenuItem Text="Delete" Clicked="DeleteClicked"
+CommandParameter="{Binding .}" IsDestructive="True" />
+                            </ViewCell.ContextActions>
+                            <StackLayout HorizontalOptions="StartAndExpand"
+Orientation="Horizontal" Padding="5,10,5,15">
+                                <StackLayout HorizontalOptions="Start"
+Orientation="Vertical">
+                                    <Label HorizontalOptions="Start" FontSize="20"
+FontAttributes="Bold" TextColor="Black"
+Text="{Binding Title}"/>
+                                    <Label HorizontalOptions="Start" FontSize="12"
+FontAttributes="Bold" TextColor="Black"
+Text="{Binding CreateAt}"/>
+                                </StackLayout>
+                            </StackLayout>
+                        </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>

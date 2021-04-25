@@ -15,26 +15,30 @@ namespace Test.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class JournalEntries : ContentPage
     {
+        
         public JournalEntries()
         {
             InitializeComponent();
-            //var connection = DependencyService.Get<ISQLiteDb>().GetConnection();
-            //connection.CreateTableAsync<JournalEntry>();
-         //   itemList.ItemsSource = new JournalEntry[] {
- //new JournalEntry ("First", "1st item"),
- ///new JournalEntry ("Second", "2nd item"),
- //new JournalEntry ("Third", "3rd item")
- //};            
+           
+        }
+        private IEnumerable<JournalEntry> GetJournalEntries(string searchText = null)
+        { 
+            List<JournalEntry> journalentry;
+            using (SQLiteConnection conn = new SQLiteConnection(App.FilePath))
+            {
+                conn.CreateTable<JournalEntry>();
+                journalentry = conn.Table<JournalEntry>().ToList();
+                JournalEntriesList.ItemsSource = journalentry;
+            }
+            if(String.IsNullOrWhiteSpace(searchText))
+                return journalentry;
+            return journalentry.Where(c => c.Title.StartsWith(searchText));
         }
         protected override void OnAppearing()
         {
             base.OnAppearing();
-            using (SQLiteConnection conn = new SQLiteConnection(App.FilePath))
-            {
-                conn.CreateTable<JournalEntry>();
-                var journalentry = conn.Table<JournalEntry>().ToList();
-                JournalEntriesList.ItemsSource = journalentry;
-            }
+            JournalEntriesList.ItemsSource = (System.Collections.IEnumerable)GetJournalEntries();
+
         }
         protected async void ItemTapped(object sender, ItemTappedEventArgs args)
         {
@@ -43,9 +47,46 @@ namespace Test.Views
             await Navigation.PushAsync(new DetailPageJournalEntries(item));
             JournalEntriesList.SelectedItem = null;
         }
+        // private async void DeleteClicked(object sender, ItemTappedEventArgs args)
+        //  {
+        //    String action = await DisplayActionSheet("Are you sure you want to delete the selected item ?", "Yes", "No");
+        //    if (action == "Yes") ;
+
+        // }
+        public async void MoreClicked(object sender, EventArgs e)
+        {
+            var mi = ((MenuItem)sender);
+            var item = (JournalEntry)(mi.CommandParameter);
+            await DisplayAlert("Clicked", item.Title.ToString() + " More button was clicked", "OK");
+ }
+        public async void DeleteClicked(object sender, EventArgs e)
+        {
+            var mi = ((MenuItem)sender);
+            var item = (JournalEntry)mi.CommandParameter;
+            string action = await DisplayActionSheet("Are you sure you want to delete " + item.Title.ToString() + " ?", "No","Yes");
+            if (action == "Yes")
+            {
+                using (SQLiteConnection conn = new SQLiteConnection(App.FilePath))
+                {
+                    conn.Delete(item);
+                };
+            }
+        }
+        private void End_refreshing(object sender, EventArgs e)
+        {
+            GetJournalEntries();
+            JournalEntriesList.ItemsSource = (System.Collections.IEnumerable)GetJournalEntries();
+            JournalEntriesList.EndRefresh();
+        }
         private async void gotojournaling(object sender, EventArgs e)
         {
             await Navigation.PushModalAsync(new Journaling());
+        }
+
+        private void SearchBar_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            JournalEntriesList.ItemsSource = (System.Collections.IEnumerable)GetJournalEntries(e.NewTextValue);
+                
         }
     }
 }
