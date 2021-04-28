@@ -8,8 +8,8 @@
     </-->
     <ContentPage.Content>
         <StackLayout>
-            <Label FontSize="40" Text="{Binding Writings}" />
-            <StackLayout Orientation="Horizontal">
+            <Label FontSize="11" Text="{Binding Writings}" />
+            <StackLayout Orientation="Horizontal" VerticalOptions="CenterAndExpand">
                 <Label Text="Written in : "/>
                 <Label Text="{Binding CreateAt}"/>
             </StackLayout>

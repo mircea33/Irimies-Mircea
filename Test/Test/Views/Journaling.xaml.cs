@@ -23,11 +23,9 @@ namespace Test.Views
         {
             JournalEntry journalentry = new JournalEntry();
             journalentry.Title = TitleEntry.Text;
-            journalentry.Writings = WritingsEditor.Text;
-                //new JournalEntry(TitleEntry.Text, WritingsEditor.Text);
+            journalentry.Writings = WritingsEditor.Text;             
             using (SQLiteConnection conn = new SQLiteConnection(App.FilePath))
-            {
-                conn.CreateTable<JournalEntry>();
+            {               
                 conn.Insert(journalentry);
             }
             await Navigation.PopModalAsync();

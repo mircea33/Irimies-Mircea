@@ -10,9 +10,9 @@ using Xamarin.Forms.Xaml;
 namespace Test.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class MeditationTimer : ContentPage
+    public partial class Ancient_Greece : ContentPage
     {
-        public MeditationTimer()
+        public Ancient_Greece()
         {
             InitializeComponent();
         }

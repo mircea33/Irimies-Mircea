@@ -14,14 +14,14 @@
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Journal Entries" FontSize="40" ></Label>
-            <SearchBar Placeholder="Search ..." TextChanged="SearchBar_TextChanged"/>
+            <SearchBar Placeholder="Search ..."  FontSize="20" TextChanged="SearchBar_TextChanged"/>
+            <Label Text="Journal Entries" FontSize="40" />
             <ListView x:Name="JournalEntriesList"  ItemTapped="ItemTapped" RowHeight="100" IsPullToRefreshEnabled="True" Refreshing ="End_refreshing">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
                             <ViewCell.ContextActions>
-                                <MenuItem Text="Edit Entry" 
+                                <MenuItem Text="Edit Entry" Clicked="EditClicked" 
 CommandParameter="{Binding .}"/>
                                 <MenuItem Text="Delete" Clicked="DeleteClicked"
 CommandParameter="{Binding .}" IsDestructive="True" />

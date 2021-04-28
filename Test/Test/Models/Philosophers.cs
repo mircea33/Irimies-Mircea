@@ -1,4 +1,5 @@
 ﻿using SQLite;
+using SQLiteNetExtensions.Attributes;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -14,5 +15,7 @@ namespace Test.Models
         [PrimaryKey]
         public string Philosopher{ get; set; }
         public string Philosophy{ get; set; }
+       // [OneToMany]
+      //  public List<Quotes> Quotes { get; set; }
     }
 }

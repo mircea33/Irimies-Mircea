@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore.Migrations;
+using System;
+using System.IO;
 using Test.Data;
 using Test.Views;
 using Xamarin.Forms;
@@ -11,7 +13,7 @@ namespace Test
         public static string FilePath;       
         public App()
         {
-            InitializeComponent();
+            InitializeComponent();           
             MainPage = new NavigationDrawer();
         }
         public App(string filePath)
@@ -22,12 +24,15 @@ namespace Test
         }
         protected override void OnStart()
         {
+
         }
         protected override void OnSleep()
         {
+
         }
         protected override void OnResume()
         {
+
         }
     }
 }

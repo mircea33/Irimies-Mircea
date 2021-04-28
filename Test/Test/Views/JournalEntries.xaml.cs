@@ -15,14 +15,14 @@ namespace Test.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class JournalEntries : ContentPage
     {
-        
+
         public JournalEntries()
         {
             InitializeComponent();
-           
+
         }
         private IEnumerable<JournalEntry> GetJournalEntries(string searchText = null)
-        { 
+        {
             List<JournalEntry> journalentry;
             using (SQLiteConnection conn = new SQLiteConnection(App.FilePath))
             {
@@ -30,7 +30,7 @@ namespace Test.Views
                 journalentry = conn.Table<JournalEntry>().ToList();
                 JournalEntriesList.ItemsSource = journalentry;
             }
-            if(String.IsNullOrWhiteSpace(searchText))
+            if (String.IsNullOrWhiteSpace(searchText))
                 return journalentry;
             return journalentry.Where(c => c.Title.StartsWith(searchText));
         }
@@ -43,34 +43,28 @@ namespace Test.Views
         protected async void ItemTapped(object sender, ItemTappedEventArgs args)
         {
             var item = args.Item as JournalEntry;
-           if (item == null) return;
+            if (item == null) return;
             await Navigation.PushAsync(new DetailPageJournalEntries(item));
             JournalEntriesList.SelectedItem = null;
         }
-        // private async void DeleteClicked(object sender, ItemTappedEventArgs args)
-        //  {
-        //    String action = await DisplayActionSheet("Are you sure you want to delete the selected item ?", "Yes", "No");
-        //    if (action == "Yes") ;
-
-        // }
-        public async void MoreClicked(object sender, EventArgs e)
+  
+        public async void EditClicked(object sender, EventArgs e)
         {
             var mi = ((MenuItem)sender);
             var item = (JournalEntry)(mi.CommandParameter);
-            await DisplayAlert("Clicked", item.Title.ToString() + " More button was clicked", "OK");
- }
+            await Navigation.PushModalAsync(new EditJournalEntry(item));
+        }
         public async void DeleteClicked(object sender, EventArgs e)
         {
             var mi = ((MenuItem)sender);
             var item = (JournalEntry)mi.CommandParameter;
-            string action = await DisplayActionSheet("Are you sure you want to delete " + item.Title.ToString() + " ?", "No","Yes");
+            string action;
+            action = await DisplayActionSheet("Are you sure you want to delete the selected item ?", "No", "Yes");
             if (action == "Yes")
-            {
                 using (SQLiteConnection conn = new SQLiteConnection(App.FilePath))
                 {
                     conn.Delete(item);
                 };
-            }
         }
         private void End_refreshing(object sender, EventArgs e)
         {
@@ -86,7 +80,6 @@ namespace Test.Views
         private void SearchBar_TextChanged(object sender, TextChangedEventArgs e)
         {
             JournalEntriesList.ItemsSource = (System.Collections.IEnumerable)GetJournalEntries(e.NewTextValue);
-                
         }
     }
 }

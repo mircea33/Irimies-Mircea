@@ -27,13 +27,13 @@ namespace Test.Views
                         gotoCarrouselPage = new Home();
                         break;
                     case "Stoicism":
-                        gotoPage = new MeditationTimer();
+                        gotoPage = new JournalEntries();
                         break;
                     case "Ancient Greece":
-                        gotoPage = new MeditationTimer();
+                        gotoPage = new JournalEntries();
                         break;
                     case "Meditation time":
-                        gotoPage = new MeditationTimer();
+                        gotoPage = new JournalEntries();
                         break;
                     case "Journaling":
                         gotoPage = new JournalEntries();
