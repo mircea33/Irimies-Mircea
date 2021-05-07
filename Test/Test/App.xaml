@@ -8,6 +8,7 @@
     <Application.Resources>
         <ResourceDictionary>
             <Color x:Key="Primary">SaddleBrown</Color>
+            <Color x:Key="Secondary">White</Color>
             <FontAttributes x:Key="TipuldeFont">Italic</FontAttributes>
             <Style TargetType="Button">
                 <Setter Property="TextColor" Value="White"/>

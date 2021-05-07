@@ -22,31 +22,15 @@ namespace Test.Views
         public Home()
         {
             InitializeComponent();
-            new DataBase_Quotes();
-
-            //  using (SQLiteConnection conn = new SQLiteConnection(App.FilePath))
-            // {
-            //     ItemsSource = (System.Collections.IEnumerable)conn.Table<Quotes>().ToList();
-            //}
-            using (var conn = new SQLiteConnection(Constants.DatabasePath))
+       //     new DataBase_Quotes();
+        }
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            using (SQLiteConnection conn = new SQLiteConnection(Constants.DatabasePath))
             {
                 ItemsSource = conn.Table<Quotes>().ToList();
             }
-        }
-        /*
-        string DatabasePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData),
-            "Data_base.db");
-        Assembly assembly = IntrospectionExtensions.GetTypeInfo(typeof(App)).Assembly;
-        Stream embeddedDatabaseStream = assembly.GetManifestResourceStream("Test.Data_base.db");
-        if(!File.Exists(DatabasePath))
-        {
-            FileStream fileStreamToWrite = File.Create(DatabasePath);
-            embeddedDatabaseStream.Seek(0, SeekOrigin.Begin);
-            embeddedDatabaseStream.CopyTo(fileStreamToWrite);
-            fileStreamToWrite.Close();
-        }
-        SQLiteAsyncConnection Database = new SQLiteAsyncConnection(DatabasePath);
-
-        */
+        }   
     }
 }

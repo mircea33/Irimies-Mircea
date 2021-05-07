@@ -9,10 +9,11 @@
             <ContentPage Title="{Binding Philosopher}">
                 <ContentPage.Content>
                     <ScrollView>
-                        <StackLayout   HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                        <StackLayout   HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" >
                             <Label Text="{Binding Quote}" FontAttributes="Italic" TextColor="{DynamicResource Primary}" FontSize="50" HorizontalTextAlignment="Center"/>
                             <Label Text="{Binding Philosopher}" FontAttributes="Italic" TextColor="{DynamicResource Primary}" FontSize="21" HorizontalTextAlignment="Center"/>
-                            </StackLayout>
+                            <Label Text="{Binding Philosophy}" FontAttributes="Italic" TextColor="{DynamicResource Primary}" FontSize="11" HorizontalTextAlignment="Center"/>
+                        </StackLayout>
                     </ScrollView>
                 </ContentPage.Content>
             </ContentPage>

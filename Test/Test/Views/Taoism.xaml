@@ -1,12 +1,21 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+<CarouselPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Test.Views.Taoism">
-    <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
-    </ContentPage.Content>
-</ContentPage>
+             x:Class="Test.Views.Taoism"
+              Title="Taoism">
+    <CarouselPage.ItemTemplate>
+        <DataTemplate>
+            <ContentPage Title="{Binding Philosopher}">
+                <ContentPage.Content>
+                    <ScrollView>
+                        <StackLayout   HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" >
+                            <Label Text="{Binding Quote}" FontAttributes="Italic" TextColor="{DynamicResource Primary}" FontSize="50" HorizontalTextAlignment="Center"/>
+                            <Label Text="{Binding Philosopher}" FontAttributes="Italic" TextColor="{DynamicResource Primary}" FontSize="21" HorizontalTextAlignment="Center"/>
+                            <Label Text="{Binding Philosophy}" FontAttributes="Italic" TextColor="{DynamicResource Primary}" FontSize="11" HorizontalTextAlignment="Center"/>
+                        </StackLayout>
+                    </ScrollView>
+                </ContentPage.Content>
+            </ContentPage>
+        </DataTemplate>
+    </CarouselPage.ItemTemplate>
+</CarouselPage>

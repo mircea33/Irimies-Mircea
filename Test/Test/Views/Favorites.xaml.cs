@@ -6,17 +6,15 @@ using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-using Test.ModelViews;
+
 namespace Test.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class Questions : CarouselPage
+    public partial class Favorites : ContentPage
     {
-        
-        public Questions()
+        public Favorites()
         {
             InitializeComponent();
-                        
         }
     }
 }

@@ -2,7 +2,8 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Test.Views.JournalEntries"
-             NavigationPage.HasBackButton="True">
+             NavigationPage.HasBackButton="True"
+             Title="Journal Entries">
     <ContentPage.Padding>
  <OnPlatform x:TypeArguments="Thickness">
  <On Platform="iOS">10,20,10,5</On>
@@ -10,12 +11,11 @@
  </OnPlatform>
 </ContentPage.Padding>
     <ContentPage.ToolbarItems>
-        <ToolbarItem  Text="ADD" Clicked="gotojournaling"/>
+        <ToolbarItem  Text="ADD ENTRY" Clicked="gotojournaling"/>
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <StackLayout>
             <SearchBar Placeholder="Search ..."  FontSize="20" TextChanged="SearchBar_TextChanged"/>
-            <Label Text="Journal Entries" FontSize="40" />
             <ListView x:Name="JournalEntriesList"  ItemTapped="ItemTapped" RowHeight="100" IsPullToRefreshEnabled="True" Refreshing ="End_refreshing">
                 <ListView.ItemTemplate>
                     <DataTemplate>

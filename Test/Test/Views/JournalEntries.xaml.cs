@@ -7,7 +7,6 @@ using Test.Models;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using SQLite;
-using Test.Services;
 using System.Linq;
 
 namespace Test.Views
@@ -38,7 +37,6 @@ namespace Test.Views
         {
             base.OnAppearing();
             JournalEntriesList.ItemsSource = (System.Collections.IEnumerable)GetJournalEntries();
-
         }
         protected async void ItemTapped(object sender, ItemTappedEventArgs args)
         {
@@ -47,7 +45,6 @@ namespace Test.Views
             await Navigation.PushAsync(new DetailPageJournalEntries(item));
             JournalEntriesList.SelectedItem = null;
         }
-  
         public async void EditClicked(object sender, EventArgs e)
         {
             var mi = ((MenuItem)sender);

@@ -15,10 +15,8 @@ namespace Test.Models
             
         }
         public string Quote { get; set; }
-       // [System.ComponentModel.DataAnnotations.Schema.ForeignKey(typeof(Philosophers))]
         public string Philosopher { get; set; }
-        
-      //  [ManyToOne]
-      //  public Philosophers Philosophers { get; set; }
+        public string Philosophy { get; set; }
+        public string Favorite { get; set; }
     }
 }

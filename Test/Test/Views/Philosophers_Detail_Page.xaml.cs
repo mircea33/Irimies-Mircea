@@ -12,13 +12,13 @@ using Xamarin.Forms.Xaml;
 namespace Test.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class Stoicism : CarouselPage
+    public partial class Philosophers_Detail_Page : CarouselPage
     {
-        public Stoicism()
+        public Philosophers_Detail_Page(Models.Philosophers item)
         {
             InitializeComponent();
             SQLiteConnection conn = new SQLiteConnection(Constants.DatabasePath);
-            ItemsSource = conn.Query<Quotes>("SELECT * FROM Quotes where Philosophy = ?", "Stoicism");
+            ItemsSource = conn.Query<Quotes>("SELECT * FROM Quotes where Philosopher = ?", item.Philosopher);
         }
     }
 }

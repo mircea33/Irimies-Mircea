@@ -3,11 +3,10 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Test.Views.NavigationDrawer" >
     <MasterDetailPage.Master>
-        <ContentPage Title="Options" Icon="hamburger.png">
-            <StackLayout>
-                <Label Text="Asta va aparea in slider?" TextColor="{DynamicResource Primary}"/>
-                <ListView x:Name="menu"  SeparatorColor="SaddleBrown" BackgroundColor="White">
-                </ListView>
+            <ContentPage Title="Options" Icon="hamburger.png">
+            <StackLayout BackgroundColor="{DynamicResource Primary}">
+                <Label Text="Applied Philosophy" TextColor="{DynamicResource Secondary}"/>
+                <ListView x:Name="menu"  SeparatorColor="{DynamicResource Secondary}" />
             </StackLayout>
         </ContentPage>
     </MasterDetailPage.Master>

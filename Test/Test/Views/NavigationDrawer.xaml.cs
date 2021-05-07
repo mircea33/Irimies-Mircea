@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using Test.Views;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-
+using Test.Models;
 namespace Test.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
@@ -15,22 +15,29 @@ namespace Test.Views
         public NavigationDrawer()
         {
             InitializeComponent();
-            string[] myPageNames = { "Home", "Taoism","Stoicism","Ancient Greece", "Journaling","Questions"};
-            menu.ItemsSource = myPageNames;
+            var template = new DataTemplate(typeof(TextCell));
+            template.SetValue(TextCell.TextColorProperty, Color.White);
+            template.SetBinding(TextCell.TextProperty, ".");
+            string[] myPageNames = {"Home", "Taoism","Stoicism","Ancient Greece","Philosophers","Journaling","Self-Measuring Questions", "Favorites","About"};
+            menu.ItemTemplate = template;
+            menu.ItemsSource = myPageNames;  
             menu.ItemTapped += (sender, e) =>
             {
                 ContentPage gotoPage = null;
                 CarouselPage gotoCarrouselPage = null;
                 switch (e.Item.ToString())
                 {
-                    case "Taoism":
+                    case "Home":
                         gotoCarrouselPage = new Home();
                         break;
+                    case "Taoism":
+                        gotoCarrouselPage = new Taoism();
+                        break;
                     case "Stoicism":
-                        gotoPage = new JournalEntries();
+                        gotoCarrouselPage = new Stoicism();
                         break;
                     case "Ancient Greece":
-                        gotoPage = new JournalEntries();
+                        gotoCarrouselPage = new Ancient_Greece();
                         break;
                     case "Meditation time":
                         gotoPage = new JournalEntries();
@@ -38,8 +45,14 @@ namespace Test.Views
                     case "Journaling":
                         gotoPage = new JournalEntries();
                         break;
-                    case "Questions":
-                        gotoPage = new Questions();
+                    case "Philosophers":
+                        gotoPage = new PhilosophersPage();
+                        break;
+                    case "Self-Measuring Questions":
+                        gotoCarrouselPage = new Questions();
+                        break;
+                    case "Favorites":
+                        gotoPage = new Favorites();
                         break;
                     default:
                         gotoCarrouselPage = new Home();
@@ -57,6 +70,6 @@ namespace Test.Views
                 this.IsPresented = false;
             };
             Detail = new NavigationPage(new Home());     
-        }
+        }       
     }
 }
