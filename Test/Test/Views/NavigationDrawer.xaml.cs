@@ -52,7 +52,7 @@ namespace Test.Views
                         gotoCarrouselPage = new Questions();
                         break;
                     case "Favorites":
-                        gotoPage = new Favorites();
+                        gotoPage = new FavoritesList();
                         break;
                     default:
                         gotoCarrouselPage = new Home();

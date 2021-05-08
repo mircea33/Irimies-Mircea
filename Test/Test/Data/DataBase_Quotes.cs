@@ -15,8 +15,8 @@ namespace Test.Data
                 new Quotes{Philosopher = "Aristotel", Quote = "Hope is a waking dream.", Philosophy = "Stoicism"},
                 new Quotes{Philosopher = "Aristotel", Quote = "We are what we repeatedly do. Excellence, then, is not an act, but a habit.",Philosophy = "Stoicism"},
                 new Quotes{Philosopher = "Aristotel", Quote = "No great genius has existed without some touch of madness.",Philosophy = "The greeks"},
-                new Quotes{Philosopher = "Aristotel", Quote = "Pleasure in the job puts perfection in the work.",Philosophy="Taoism"},
-                new Quotes{Philosopher = "Aristotel", Quote = "The energy of the mind is the essence of life.",Philosophy="Taoism"}
+                new Quotes{Philosopher = "Aristotel", Quote = "Pleasure in the job puts perfection in the work.",Philosophy="Taoism",Favorite="true"},
+                new Quotes{Philosopher = "Aristotel", Quote = "The energy of the mind is the essence of life.",Philosophy="Taoism",Favorite="true"}
             };
             List<Philosophers> item_philosopher = new List<Philosophers>
             {
@@ -34,7 +34,7 @@ namespace Test.Data
                 conn.CreateTable<Philosophers>();
                 foreach (Philosophers element in item_philosopher)
                 {
-                    conn.Insert(element);
+                 //   conn.Insert(element);
                 }
             }
         }

@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Test.Views.FavoritesList"
+             Title="Favorites">
+    <ContentPage.Padding>
+        <OnPlatform x:TypeArguments="Thickness">
+            <On Platform="iOS">10,20,10,5</On>
+            <On Platform="Android">10,0,10,5</On>
+        </OnPlatform>
+    </ContentPage.Padding>
+    <ContentPage.Content>
+        <StackLayout>
+            <SearchBar Placeholder="Search ..."  FontSize="20" TextChanged="SearchBar_TextChanged"/>
+            <ListView x:Name="Favorites_List"  ItemTapped="ItemTapped" RowHeight="100" >
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell >
+                            <StackLayout HorizontalOptions="StartAndExpand"
+Orientation="Horizontal" Padding="5,0,10,20">
+                                <StackLayout HorizontalOptions="Start"
+Orientation="Vertical">
+                                    <Label HorizontalOptions="Start" FontSize="20"
+FontAttributes="Bold" TextColor="Black"
+Text="{Binding Philosopher}"/>
+                                    <Label HorizontalOptions="Start" FontSize="12"
+FontAttributes="Bold" TextColor="Black"
+Text="{Binding Philosophy}"/>
+                                    <Label HorizontalOptions="Start" FontSize="12"
+FontAttributes="Bold" TextColor="Black"
+Text="{Binding Quote}"/>
+                                </StackLayout>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

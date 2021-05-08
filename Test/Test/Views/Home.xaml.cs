@@ -18,11 +18,10 @@ namespace Test.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class Home : CarouselPage
     {
-
         public Home()
         {
             InitializeComponent();
-       //     new DataBase_Quotes();
+            //new DataBase_Quotes();
         }
         protected override void OnAppearing()
         {
@@ -31,6 +30,14 @@ namespace Test.Views
             {
                 ItemsSource = conn.Table<Quotes>().ToList();
             }
-        }   
+        }
+
+        private void Button_Clicked(object sender, EventArgs e)
+        {
+            var mi = ((Button)sender);
+            var item = (Quotes)mi.CommandParameter;
+            SQLiteConnection conn = new SQLiteConnection(Constants.DatabasePath);
+            conn.Query<Quotes>("UPDATE Quotes SET Favorite = ? WHERE Quote = ?", "true",item.Quote);
+        }
     }
 }

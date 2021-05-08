@@ -10,13 +10,13 @@
     <None Remove="Data_base.db" />
     <None Remove="GettingStarted.txt" />
     <None Remove="Images\characterispower.jpg" />
-    <None Remove="Image\characterispower.jpg" />
+    <None Remove="SplashScreenForApplication\characterispower.jpg" />
     <None Remove="Philosophies_Qoutes_Questions.db" />
   </ItemGroup>
 
   <ItemGroup>
     <Content Include="GettingStarted.txt" />
-    <EmbeddedResource Include="Image\characterispower.jpg" />
+    <EmbeddedResource Include="SplashScreenForApplication\characterispower.jpg" />
   </ItemGroup>
 
   <ItemGroup>
@@ -56,6 +56,9 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\Favorites.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\FavoritesList.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\Home.xaml">

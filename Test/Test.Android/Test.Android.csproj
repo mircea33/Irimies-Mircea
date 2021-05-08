@@ -105,7 +105,7 @@
     <AndroidResource Include="Resources\mipmap-mdpi\icon.png" />
     <AndroidResource Include="Resources\mipmap-mdpi\launcher_foreground.png" />
     <AndroidResource Include="Resources\mipmap-xhdpi\icon.png" />
-    <AndroidResource Include="Resources\mipmap-xhdpi\launcher_foreground.png" />
+    <AndroidResource Include="Resources\mipmap-xhdpi\launcher_foreground.jpg" />
     <AndroidResource Include="Resources\mipmap-xxhdpi\icon.png" />
     <AndroidResource Include="Resources\mipmap-xxhdpi\launcher_foreground.png" />
     <AndroidResource Include="Resources\mipmap-xxxhdpi\icon.png" />
@@ -121,7 +121,44 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="image.png" />
+    <AndroidResource Include="Resources\drawable\AppliedPhilosophy.jpg" />
+    <AndroidResource Include="Resources\mipmap-hdpi\AppliedPhilosophy.jpg" />
+    <AndroidResource Include="Resources\mipmap-mdpi\AppliedPhilosophy.jpg" />
+    <AndroidResource Include="Resources\mipmap-xhdpi\AppliedPhilosophy.jpg" />
+    <AndroidResource Include="Resources\mipmap-xxhdpi\AppliedPhilosophy.jpg" />
+    <AndroidResource Include="Resources\mipmap-xxxhdpi\AppliedPhilosophy.jpg" />
+    <AndroidResource Include="Resources\mipmap-hdpi\ic_launcher.jpg" />
+    <AndroidResource Include="Resources\mipmap-mdpi\ic_launcher.jpg" />
+    <AndroidResource Include="Resources\mipmap-xhdpi\ic_launcher.jpg" />
+    <AndroidResource Include="Resources\mipmap-xxhdpi\ic_launcher.jpg" />
+    <AndroidResource Include="Resources\mipmap-xxxhdpi\ic_launcher.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\Philosophy.jpg">
+      <Generator>MSBuild:UpdateGeneratedFiles</Generator>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\mipmap-hdpi\Philosophy.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\mipmap-mdpi\Philosophy.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\mipmap-xhdpi\Philosophy.jpg">
+      <Generator>MSBuild:UpdateGeneratedFiles</Generator>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\mipmap-xxhdpi\Philosophy.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\mipmap-xxxhdpi\Philosophy.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <UserProperties XamarinHotReloadDebuggerTimeoutExceptionTestAndroidHideInfoBar="True" />
+    </VisualStudio>
+  </ProjectExtensions>
 </Project>
