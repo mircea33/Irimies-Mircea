@@ -36,8 +36,11 @@ namespace Test.Views
         {
             var mi = ((Button)sender);
             var item = (Quotes)mi.CommandParameter;
-            SQLiteConnection conn = new SQLiteConnection(Constants.DatabasePath);
-            conn.Query<Quotes>("UPDATE Quotes SET Favorite = ? WHERE Quote = ?", "true",item.Quote.ToString());
+            if (item.Favorite == "false")
+            {
+                SQLiteConnection conn = new SQLiteConnection(Constants.DatabasePath);
+                conn.Query<Quotes>("UPDATE Quotes SET Favorite = ? WHERE Quote = ?", "true", item.Quote.ToString());
+            }
         }
     }
 }

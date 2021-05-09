@@ -20,5 +20,15 @@ namespace Test.Views
             SQLiteConnection conn = new SQLiteConnection(Constants.DatabasePath);
             ItemsSource = conn.Query<Quotes>("SELECT * FROM Quotes where Philosophy = ?", "Stoicism");
         }
+        private async void Add_to_Favorites_Button_Clicked(object sender, EventArgs e)
+        {
+            var mi = ((Button)sender);
+            var item = (Quotes)mi.CommandParameter;
+            if (item.Favorite == "false")
+            {
+                SQLiteConnection conn = new SQLiteConnection(Constants.DatabasePath);
+                conn.Query<Quotes>("UPDATE Quotes SET Favorite = ? WHERE Quote = ?", "true", item.Quote.ToString());
+            }
+        }
     }
 }

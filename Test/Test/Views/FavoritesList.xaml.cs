@@ -20,19 +20,16 @@ namespace Test.Views
         public FavoritesList()
         {
             InitializeComponent();
-
         }
-
         private IEnumerable<Quotes> GetFavorites(string searchText = null)
         {
             List<Quotes> favoritequotes;   
                 SQLiteConnection conn = new SQLiteConnection(Constants.DatabasePath);
                 favoritequotes = conn.Query<Quotes>("SELECT * FROM Quotes WHERE Favorite = ?", "true");
                 Favorites_List.ItemsSource = favoritequotes;
-            
             if (String.IsNullOrWhiteSpace(searchText))
                 return favoritequotes;
-            return favoritequotes.Where(c => c.Quote.StartsWith(searchText));
+            return favoritequotes.Where(c => c.Quote.Contains(searchText));
         }
         protected override void OnAppearing()
         {

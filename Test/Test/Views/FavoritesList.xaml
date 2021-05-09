@@ -12,22 +12,18 @@
     <ContentPage.Content>
         <StackLayout>
             <SearchBar Placeholder="Search ..."  FontSize="20" TextChanged="SearchBar_TextChanged"/>
-            <ListView x:Name="Favorites_List" RowHeight="100" HasUnevenRows="True"  IsPullToRefreshEnabled="True" Refreshing ="End_refreshing">
+            <ListView x:Name="Favorites_List"  RowHeight="100" HasUnevenRows="True" IsPullToRefreshEnabled="True" Refreshing ="End_refreshing">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
-                            <ViewCell.ContextActions>
-                                <MenuItem Text="Remove from favorites" Clicked="RemoveClicked" 
-CommandParameter="{Binding .}"/>
-                            </ViewCell.ContextActions>
                             <StackLayout HorizontalOptions="StartAndExpand"
 Orientation="Horizontal" Padding="5,0,10,20">
                                 <StackLayout HorizontalOptions="Start"
 Orientation="Vertical">
-                                    <Label HorizontalOptions="Start" FontSize="20"
+                                    <Label HorizontalOptions="Start" FontSize="21"
 FontAttributes="Italic" TextColor="Black"
 Text="{Binding Quote}"/>
-                                    <Label HorizontalOptions="Start" FontSize="12"
+                                    <Label HorizontalOptions="Start" FontSize="17"
 FontAttributes="Italic" TextColor="Black"
 Text="{Binding Philosopher}"/>
                                     <Label HorizontalOptions="Start" FontSize="12"

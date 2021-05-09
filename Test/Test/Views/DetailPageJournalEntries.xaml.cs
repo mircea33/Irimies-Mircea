@@ -17,6 +17,7 @@ namespace Test.Views
         {
             InitializeComponent();
             this.BindingContext = item;
+            Title = item.Title;
         }
 
         private void ToolbarItem_Edit_Clicked(object sender, EventArgs e)
