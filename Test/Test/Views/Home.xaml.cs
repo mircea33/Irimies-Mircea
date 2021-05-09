@@ -21,7 +21,7 @@ namespace Test.Views
         public Home()
         {
             InitializeComponent();
-            //new DataBase_Quotes();
+           // new DataBase_Quotes();
         }
         protected override void OnAppearing()
         {
@@ -32,12 +32,12 @@ namespace Test.Views
             }
         }
 
-        private void Button_Clicked(object sender, EventArgs e)
+        private async void Add_to_Favorites_Button_Clicked(object sender, EventArgs e)
         {
             var mi = ((Button)sender);
             var item = (Quotes)mi.CommandParameter;
             SQLiteConnection conn = new SQLiteConnection(Constants.DatabasePath);
-            conn.Query<Quotes>("UPDATE Quotes SET Favorite = ? WHERE Quote = ?", "true",item.Quote);
+            conn.Query<Quotes>("UPDATE Quotes SET Favorite = ? WHERE Quote = ?", "true",item.Quote.ToString());
         }
     }
 }

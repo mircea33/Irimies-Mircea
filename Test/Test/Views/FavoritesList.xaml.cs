@@ -27,7 +27,7 @@ namespace Test.Views
         {
             List<Quotes> favoritequotes;   
                 SQLiteConnection conn = new SQLiteConnection(Constants.DatabasePath);
-                favoritequotes = conn.Query<Quotes>("SELECT * FROM Quotes where Favorite = ?", "true");
+                favoritequotes = conn.Query<Quotes>("SELECT * FROM Quotes WHERE Favorite = ?", "true");
                 Favorites_List.ItemsSource = favoritequotes;
             
             if (String.IsNullOrWhiteSpace(searchText))
@@ -39,16 +39,23 @@ namespace Test.Views
             base.OnAppearing();
             Favorites_List.ItemsSource = (System.Collections.IEnumerable)GetFavorites();
         }
-        protected async void ItemTapped(object sender, ItemTappedEventArgs args)
-        {
-            var item = args.Item as Quotes;
-            if (item == null) return;
-            await Navigation.PushAsync(new Favorites(item));
-    //        FavoritesList.SelectedItem = null;
-        }
+  
         private void SearchBar_TextChanged(object sender, TextChangedEventArgs e)
         {
             Favorites_List.ItemsSource = (System.Collections.IEnumerable)GetFavorites(e.NewTextValue);
+        }
+        public async void RemoveClicked(object sender, EventArgs e)
+        {
+            var mi = ((MenuItem)sender);
+            var item = (Quotes)mi.CommandParameter;
+            SQLiteConnection conn = new SQLiteConnection(Constants.DatabasePath);
+            conn.Query<Quotes>("UPDATE Quotes SET Favorite = ? WHERE Quote = ?", "false", item.Quote.ToString());
+        }
+        private void End_refreshing(object sender, EventArgs e)
+        {
+            GetFavorites();
+            Favorites_List.ItemsSource = (System.Collections.IEnumerable)GetFavorites();
+            Favorites_List.EndRefresh();
         }
     }
 }

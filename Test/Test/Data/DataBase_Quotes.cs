@@ -11,12 +11,12 @@ namespace Test.Data
         {
             List<Quotes> items = new List<Quotes>
             {
-                new Quotes{Philosopher = "Aristotel", Quote = "Knowing yourself is the beginning of all wisdom.", Philosophy = "Stoicism"},
-                new Quotes{Philosopher = "Aristotel", Quote = "Hope is a waking dream.", Philosophy = "Stoicism"},
-                new Quotes{Philosopher = "Aristotel", Quote = "We are what we repeatedly do. Excellence, then, is not an act, but a habit.",Philosophy = "Stoicism"},
-                new Quotes{Philosopher = "Aristotel", Quote = "No great genius has existed without some touch of madness.",Philosophy = "The greeks"},
-                new Quotes{Philosopher = "Aristotel", Quote = "Pleasure in the job puts perfection in the work.",Philosophy="Taoism",Favorite="true"},
-                new Quotes{Philosopher = "Aristotel", Quote = "The energy of the mind is the essence of life.",Philosophy="Taoism",Favorite="true"}
+                new Quotes{Philosopher = "Aristotel", Quote = "Knowing yourself is the beginning of all wisdom.", Philosophy = "Stoicism", Favorite = "false"},
+                new Quotes{Philosopher = "Aristotel", Quote = "Hope is a waking dream.", Philosophy = "Stoicism", Favorite = "false"},
+                new Quotes{Philosopher = "Aristotel", Quote = "We are what we repeatedly do. Excellence, then, is not an act, but a habit.",Philosophy = "Stoicism", Favorite="false"},
+                new Quotes{Philosopher = "Aristotel", Quote = "No great genius has existed without some touch of madness.",Philosophy = "The greeks", Favorite="false"},
+                new Quotes{Philosopher = "Aristotel", Quote = "Pleasure in the job puts perfection in the work.",Philosophy="Taoism",Favorite="false"},
+                new Quotes{Philosopher = "Aristotel", Quote = "The energy of the mind is the essence of life.",Philosophy="Taoism",Favorite="false"}
             };
             List<Philosophers> item_philosopher = new List<Philosophers>
             {

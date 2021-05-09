@@ -12,23 +12,27 @@
     <ContentPage.Content>
         <StackLayout>
             <SearchBar Placeholder="Search ..."  FontSize="20" TextChanged="SearchBar_TextChanged"/>
-            <ListView x:Name="Favorites_List"  ItemTapped="ItemTapped" RowHeight="100" >
+            <ListView x:Name="Favorites_List" RowHeight="100" HasUnevenRows="True"  IsPullToRefreshEnabled="True" Refreshing ="End_refreshing">
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <ViewCell >
+                        <ViewCell>
+                            <ViewCell.ContextActions>
+                                <MenuItem Text="Remove from favorites" Clicked="RemoveClicked" 
+CommandParameter="{Binding .}"/>
+                            </ViewCell.ContextActions>
                             <StackLayout HorizontalOptions="StartAndExpand"
 Orientation="Horizontal" Padding="5,0,10,20">
                                 <StackLayout HorizontalOptions="Start"
 Orientation="Vertical">
                                     <Label HorizontalOptions="Start" FontSize="20"
-FontAttributes="Bold" TextColor="Black"
+FontAttributes="Italic" TextColor="Black"
+Text="{Binding Quote}"/>
+                                    <Label HorizontalOptions="Start" FontSize="12"
+FontAttributes="Italic" TextColor="Black"
 Text="{Binding Philosopher}"/>
                                     <Label HorizontalOptions="Start" FontSize="12"
-FontAttributes="Bold" TextColor="Black"
+FontAttributes="Italic" TextColor="Black"
 Text="{Binding Philosophy}"/>
-                                    <Label HorizontalOptions="Start" FontSize="12"
-FontAttributes="Bold" TextColor="Black"
-Text="{Binding Quote}"/>
                                 </StackLayout>
                             </StackLayout>
                         </ViewCell>
