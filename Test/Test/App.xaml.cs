@@ -1,7 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore.Migrations;
 using System;
 using System.IO;
-using Test.Data;
 using Test.Views;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;

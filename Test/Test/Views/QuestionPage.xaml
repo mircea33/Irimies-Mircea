@@ -1,15 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <CarouselPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Test.Views.Questions"
-              Title="Self Measuring Questions">
+             x:Class="Test.Views.QuestionPage">
     <CarouselPage.ItemTemplate>
         <DataTemplate>
-            <ContentPage Title="{Binding Philosopher}">
+            <ContentPage>
                 <ContentPage.Content>
                     <ScrollView>
                         <StackLayout   HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
-                            <Label Text="{Binding Quote}" FontAttributes="Italic" TextColor="{DynamicResource Primary}" FontSize="50" HorizontalTextAlignment="Center"/>
+                            <Label Text="{Binding Question}" FontAttributes="Italic" TextColor="{DynamicResource Primary}" FontSize="50" HorizontalTextAlignment="Center"/>
                         </StackLayout>
                     </ScrollView>
                 </ContentPage.Content>

@@ -7,12 +7,6 @@ namespace Test.Models
 {
     public class JournalEntry
     {
-      //  public JournalEntry(string title, string writings)
-     //   {
-      //      this.Title = title;
-      //      this.Writings = writings;
-      //      CreateAt = DateTime.Now;
-      //  }
       public JournalEntry()
         {
             CreateAt = DateTime.Now;

@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Test.Data;
 using Test.Models;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -26,7 +25,7 @@ namespace Test.Views
         private IEnumerable<Philosophers> GetPhilosophers(string searchText = null)
         {
             List<Philosophers> philosopherentry;
-            using (SQLiteConnection conn = new SQLiteConnection(Constants.DatabasePath))
+            using (SQLiteConnection conn = new SQLiteConnection(App.FilePath))
             {
                 conn.CreateTable<Philosophers>();
                 philosopherentry = conn.Table<Philosophers>().ToList();

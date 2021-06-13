@@ -15,7 +15,5 @@ namespace Test.Models
         [PrimaryKey]
         public string Philosopher{ get; set; }
         public string Philosophy{ get; set; }
-       // [OneToMany]
-      //  public List<Quotes> Quotes { get; set; }
     }
 }

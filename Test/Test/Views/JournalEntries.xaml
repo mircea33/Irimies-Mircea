@@ -16,7 +16,7 @@
     <ContentPage.Content>
         <StackLayout>
             <SearchBar Placeholder="Search ..."  FontSize="20" TextChanged="SearchBar_TextChanged"/>
-            <ListView x:Name="JournalEntriesList"  ItemTapped="ItemTapped" RowHeight="100" IsPullToRefreshEnabled="True" Refreshing ="End_refreshing">
+            <ListView x:Name="JournalEntriesList" HasUnevenRows="True" ItemTapped="ItemTapped" RowHeight="100" IsPullToRefreshEnabled="True" Refreshing ="End_refreshing">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>

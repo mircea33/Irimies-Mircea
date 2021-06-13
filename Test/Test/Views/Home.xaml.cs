@@ -6,10 +6,7 @@ using System.Threading.Tasks;
 using Test.Models;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-using Test.ModelViews;
-using Test.Data;
 using SQLite;
-using Test.Data;
 using System.IO;
 using System.Reflection;
 
@@ -26,19 +23,18 @@ namespace Test.Views
         protected override void OnAppearing()
         {
             base.OnAppearing();
-            using (SQLiteConnection conn = new SQLiteConnection(Constants.DatabasePath))
+            using (SQLiteConnection conn = new SQLiteConnection(App.FilePath))
             {
                 ItemsSource = conn.Table<Quotes>().ToList();
             }
         }
-
-        private async void Add_to_Favorites_Button_Clicked(object sender, EventArgs e)
+        private void Add_to_Favorites_Button_Clicked(object sender, EventArgs e)
         {
-            var mi = ((Button)sender);
+            var mi = ((ImageButton)sender);
             var item = (Quotes)mi.CommandParameter;
             if (item.Favorite == "false")
             {
-                SQLiteConnection conn = new SQLiteConnection(Constants.DatabasePath);
+                SQLiteConnection conn = new SQLiteConnection(App.FilePath);
                 conn.Query<Quotes>("UPDATE Quotes SET Favorite = ? WHERE Quote = ?", "true", item.Quote.ToString());
             }
         }

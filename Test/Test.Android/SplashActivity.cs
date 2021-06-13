@@ -31,7 +31,6 @@ namespace Test.Droid
             Task startupWork = new Task(() => { SimulateStartup(); });
             startupWork.Start();
         }
-
         // Simulates background work that happens behind the splash screen
         async void SimulateStartup()
         {

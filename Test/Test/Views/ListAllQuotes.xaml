@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Test.Views.FavoritesList"
-             Title="Favorites">
+             x:Class="Test.Views.ListAllQuotes"
+             Title="Quotes">
     <ContentPage.Padding>
         <OnPlatform x:TypeArguments="Thickness">
             <On Platform="iOS">10,20,10,5</On>
@@ -12,7 +12,7 @@
     <ContentPage.Content>
         <StackLayout>
             <SearchBar Placeholder="Search ..."  FontSize="20" TextChanged="SearchBar_TextChanged"/>
-            <ListView x:Name="Favorites_List"  RowHeight="100" HasUnevenRows="True" IsPullToRefreshEnabled="True" Refreshing ="End_refreshing" ItemTapped="ItemTapped">
+            <ListView x:Name="Quotes_List"  RowHeight="100" HasUnevenRows="True" ItemTapped="ItemTapped">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>

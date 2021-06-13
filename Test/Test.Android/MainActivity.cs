@@ -5,6 +5,7 @@ using Android.Runtime;
 using Android.OS;
 using System.IO;
 using Xamarin.Forms;
+using Google;
 
 namespace Test.Droid
 {
@@ -16,7 +17,7 @@ namespace Test.Droid
         private void copyDataBase(string DB_PATH)
         {
             var myInput = ApplicationContext.Assets.Open("Baza_de_date.db");
-            string outFileName = DB_PATH + DB_NAME;
+            string outFileName = DB_PATH;
             var myOutput = new FileStream(outFileName, FileMode.OpenOrCreate);
             byte[] buffer = new byte[1024];
             int length;

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using Test.ModelViews;
+using Test.Views;
 using Xamarin.Forms;
 
 namespace Test.SplashScreenForApplication

@@ -10,11 +10,20 @@
                 <ContentPage.Content>
                     <ScrollView>
                         <StackLayout   HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" >
-                            <Label Text="{Binding Quote}" FontAttributes="Italic" TextColor="{DynamicResource Primary}" FontSize="50" HorizontalTextAlignment="Center"/>
+                            <Label Text="{Binding Quote}" FontAttributes="Italic" TextColor="{DynamicResource Primary}" FontSize="45" HorizontalTextAlignment="Center"/>
                             <Label Text="{Binding Philosopher}" FontAttributes="Italic" TextColor="{DynamicResource Primary}" FontSize="21" HorizontalTextAlignment="Center"/>
                             <Label Text="{Binding Philosophy}" FontAttributes="Italic" TextColor="{DynamicResource Primary}" FontSize="11" HorizontalTextAlignment="Center"/>
-                            <Button x:Name="AddToFavoritesButton" Text="Add To favorites" CommandParameter="{Binding .}" 
-                                    BackgroundColor="{DynamicResource Primary}" Clicked="Add_to_Favorites_Button_Clicked"/>
+                           <!--Button x:Name="AddToFavoritesButton" Text="Add To favorites" CommandParameter="{Binding .}" 
+                                    BackgroundColor="{DynamicResource Primary}" Clicked="Add_to_Favorites_Button_Clicked"/-->
+                            <ImageButton x:Name="AddToFavoritesButton" CommandParameter="{Binding .}"  Clicked="Add_to_Favorites_Button_Clicked"
+                                         Source="save.png" WidthRequest="60" HeightRequest="60" Rotation="180" CornerRadius="180" 
+                                         BackgroundColor="{StaticResource Primary}">
+                                <ImageButton.Clip>
+                                    <EllipseGeometry Center="30,30"
+                                                                 RadiusX="30"
+                                                                 RadiusY="30"/>
+                                </ImageButton.Clip>
+                            </ImageButton>
                         </StackLayout>
                     </ScrollView>
                 </ContentPage.Content>
