@@ -10,13 +10,11 @@
     <None Remove="Data_base.db" />
     <None Remove="GettingStarted.txt" />
     <None Remove="Images\characterispower.jpg" />
-    <None Remove="SplashScreenForApplication\characterispower.jpg" />
     <None Remove="Philosophies_Qoutes_Questions.db" />
   </ItemGroup>
 
   <ItemGroup>
     <Content Include="GettingStarted.txt" />
-    <EmbeddedResource Include="SplashScreenForApplication\characterispower.jpg" />
   </ItemGroup>
 
   <ItemGroup>

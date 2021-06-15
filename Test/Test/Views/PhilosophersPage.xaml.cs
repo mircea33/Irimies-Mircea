@@ -27,7 +27,6 @@ namespace Test.Views
             List<Philosophers> philosopherentry;
             using (SQLiteConnection conn = new SQLiteConnection(App.FilePath))
             {
-                conn.CreateTable<Philosophers>();
                 philosopherentry = conn.Table<Philosophers>().ToList();
                 PhilosophersList.ItemsSource = philosopherentry;
             }

@@ -41,6 +41,12 @@ namespace Test.Views
         {
             Quotes_List.ItemsSource = (System.Collections.IEnumerable)GetQuotes(e.NewTextValue);
         }
+        private void End_refreshing(object sender, EventArgs e)
+        {
+            GetQuotes();
+            Quotes_List.ItemsSource = (System.Collections.IEnumerable)GetQuotes();
+            Quotes_List.EndRefresh();
+        }
         protected async void ItemTapped(object sender, ItemTappedEventArgs args)
         {
             var item = args.Item as Quotes;

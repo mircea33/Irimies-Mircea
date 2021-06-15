@@ -18,7 +18,7 @@ namespace Test.Views
         public Home()
         {
             InitializeComponent();
-           // new DataBase_Quotes();
+  
         }
         protected override void OnAppearing()
         {
