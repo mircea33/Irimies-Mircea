@@ -16,8 +16,12 @@ namespace Test.Views
         public Stoicism()
         {
             InitializeComponent();
+            List<Quotes> quotes_list;
             SQLiteConnection conn = new SQLiteConnection(App.FilePath);
-            ItemsSource = conn.Query<Quotes>("SELECT * FROM Quotes where Philosophy = ?", "Stoicism");
+            quotes_list = conn.Query<Quotes>("SELECT * FROM Quotes where Philosophy = ?", "Stoicism");
+            var rnd = new Random();
+            var randomized = quotes_list.OrderBy(item => rnd.Next());
+            ItemsSource = randomized;
         }
         private void Add_to_Favorites_Button_Clicked(object sender, EventArgs e)
         {

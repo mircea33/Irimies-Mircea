@@ -18,7 +18,7 @@ namespace Test.Views
             var template = new DataTemplate(typeof(TextCell));
             template.SetValue(TextCell.TextColorProperty, Color.White);
             template.SetBinding(TextCell.TextProperty, ".");
-            string[] myPageNames = {"Home", "Taoism","Stoicism","Ancient Greece","Philosophers","Journaling","Self-Measuring Questions", "Favorites","Quotes","About"};
+            string[] myPageNames = {"Home", "Taoism","Stoicism","Ancient Greece","Philosophers","Journaling","Self-Measuring Questions", "Favorites","Quotes"};
             menu.ItemTemplate = template;
             menu.ItemsSource = myPageNames;  
             menu.ItemTapped += (sender, e) =>
@@ -57,9 +57,6 @@ namespace Test.Views
                     case "Quotes":
                         gotoPage = new ListAllQuotes();
                         break;        
-                    case "About":
-                        gotoPage = new AboutPage();
-                        break;
                     default:
                         gotoCarrouselPage = new Home();
                         break;

@@ -18,19 +18,22 @@ namespace Test.Views
         public Home()
         {
             InitializeComponent();
-  
         }
         protected override void OnAppearing()
         {
             base.OnAppearing();
+            List<Quotes> quotes_list;
             using (SQLiteConnection conn = new SQLiteConnection(App.FilePath))
             {
-                ItemsSource = conn.Table<Quotes>().ToList();
+                quotes_list = conn.Table<Quotes>().ToList();
+                var rnd = new Random();
+                var randomized = quotes_list.OrderBy(item => rnd.Next());
+                ItemsSource = randomized;
             }
         }
         private void Add_to_Favorites_Button_Clicked(object sender, EventArgs e)
         {
-            var mi = ((ImageButton)sender);
+            var mi = ((Button)sender);
             var item = (Quotes)mi.CommandParameter;
             if (item.Favorite == "false")
             {

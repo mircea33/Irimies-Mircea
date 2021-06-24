@@ -9,6 +9,8 @@
                     <ScrollView>
                         <StackLayout   HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" >
                             <Label Text="{Binding Quote}" FontAttributes="Italic" TextColor="{DynamicResource Primary}" FontSize="50" HorizontalTextAlignment="Center"/>
+                            <Button x:Name="AddToFavoritesButton" Text="Add To favorites" CommandParameter="{Binding .}" 
+                                    BackgroundColor="{DynamicResource Primary}" Clicked="Add_to_Favorites_Button_Clicked"/>
                         </StackLayout>
                     </ScrollView>
                 </ContentPage.Content>

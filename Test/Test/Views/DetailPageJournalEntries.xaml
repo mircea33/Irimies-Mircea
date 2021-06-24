@@ -10,8 +10,10 @@
         <StackLayout>
             <StackLayout Orientation="Vertical" VerticalOptions="StartAndExpand">
                 <Label FontSize="27" FontAttributes="Italic" Text="{Binding Writings}" />
-                <Label Text="Written in : "/>
-                <Label Text="{Binding CreateAt}"/>
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Written in : " FontSize="11"/>
+                    <Label Text="{Binding CreateAt}" FontSize="11"/>
+                </StackLayout>
             </StackLayout>
         </StackLayout>
     </ContentPage.Content>

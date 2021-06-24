@@ -7,7 +7,6 @@ using Test.Models;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using SQLite;
-using System.Linq;
 
 namespace Test.Views
 {

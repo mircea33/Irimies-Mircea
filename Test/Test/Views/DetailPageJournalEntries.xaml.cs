@@ -19,15 +19,5 @@ namespace Test.Views
             this.BindingContext = item;
             Title = item.Title;
         }
-
-        private void ToolbarItem_Edit_Clicked(object sender, EventArgs e)
-        {
-
-        }
-
-        private void ToolbarItem_Delete_Clicked(object sender, EventArgs e)
-        {
-
-        }
     }
 }

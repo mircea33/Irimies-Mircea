@@ -19,7 +19,7 @@
         </Grid.ColumnDefinitions>
         <Label Text="What's on your mind"/>
         <StackLayout Orientation="Vertical" Grid.Row="1" Padding="1">
-             <Entry x:Name="TitleEntry" Placeholder="Write in a title reguarding today's journal entry"/>
+             <Entry x:Name="TitleEntry" Placeholder="A title for today"/>
              <Editor x:Name="WritingsEditor" VerticalOptions="FillAndExpand" TextColor="{DynamicResource InputTextColor}"/>
         </StackLayout>
         <StackLayout Orientation="Vertical" Grid.Row="2">

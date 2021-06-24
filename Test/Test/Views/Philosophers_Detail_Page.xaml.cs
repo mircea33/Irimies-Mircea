@@ -13,12 +13,16 @@ namespace Test.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class Philosophers_Detail_Page : CarouselPage
     {
-        public Philosophers_Detail_Page(Models.Philosophers item)
+        public Philosophers_Detail_Page(Models.Philosophers item_philosopher)
         {
             InitializeComponent();
-            Title = item.Philosopher;
+            Title = item_philosopher.Philosopher;
+            List<Quotes> quotes_list;
             SQLiteConnection conn = new SQLiteConnection(App.FilePath);
-            ItemsSource = conn.Query<Quotes>("SELECT * FROM Quotes where Philosopher = ?", item.Philosopher);
+            quotes_list = conn.Query<Quotes>("SELECT * FROM Quotes where Philosopher = ?", item_philosopher.Philosopher);
+            var rnd = new Random();
+            var randomized = quotes_list.OrderBy(item => rnd.Next());
+            ItemsSource = randomized;
         }
         private void Add_to_Favorites_Button_Clicked(object sender, EventArgs e)
         {
